@@ -22,8 +22,9 @@ class Controller(QMainWindow, Ui_MainWindow):
 
     def update_display(self, game_info):
         self.lcdNumber_user_score.display(game_info['user_score'])
-        self.label_computer_choice.setText(game_info['computer_choice'])
         self.lcdNumber_computer_score.display(game_info['computer_score'])
+        self.label_computer_choice.setText(game_info['computer_choice'])
+
         if game_info['game_winner'] is None:
             self.label_outcome.setText(f"{game_info['round_winner']} wins this round!\nChoose again")
         else:
@@ -35,7 +36,7 @@ class Controller(QMainWindow, Ui_MainWindow):
     def reset_game(self):
         self.game = Game()
         self.label_computer_choice.setText("...")
-        self.label_outcome.setText("Click a button below to play")
+        self.label_outcome.setText("You are Player 1. Click a button below to play")
         self.lcdNumber_user_score.display("0")
         self.lcdNumber_computer_score.display("0")
         self.button_scissor.setDisabled(False)
