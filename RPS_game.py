@@ -36,6 +36,7 @@ class Game:
         self.__determine_round_winner()
         self.__determine_outcome()
 
+    # TODO: Fix logic to handle ties. Currently outputs "None wins this round!" and increments user_score
     def __determine_round_winner(self):
         if self.user.choice == 'Rock' and self.computer.choice == 'Scissor':
             self.round_winner = self.user.name
@@ -49,11 +50,10 @@ class Game:
             self.round_winner = self.computer.name
         elif self.user.choice == 'Paper' and self.computer.choice == 'Scissor':
             self.round_winner = self.computer.name
-        # Ties not counted
         else:
             self.round_winner = None
 
-        # call increase score on the winner
+        # call increase_score() on the winner
         if self.round_winner == self.computer.name:
             self.computer.increase_score()
         else:
