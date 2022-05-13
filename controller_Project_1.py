@@ -27,6 +27,7 @@ class Controller(QMainWindow, Ui_MainWindow):
 
         if game_info['game_winner'] is None:
             self.label_outcome.setText(f"{game_info['round_winner']} wins this round!\nChoose again")
+
         else:
             self.label_outcome.setText(f"{game_info['game_winner']} wins the game!\nClick Restart to play again.")
             self.button_scissor.setDisabled(True)
